@@ -263,7 +263,7 @@ def make_runners():
 
     if sys.platform == 'win32':
         top_mod.append('platutils_win32.py')
-    elif os.name == 'posix':
+    elif os.name in ['posix', 'java']:
         top_mod.append('platutils_posix.py')
     else:
         top_mod.append('platutils_dummy.py')

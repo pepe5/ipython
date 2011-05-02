@@ -41,7 +41,7 @@ from IPython.kernel.fcutil import have_crypto
 # Create various ipython directories if they don't exist.
 # This must be done before IPython.kernel.config is imported.
 from IPython.iplib import user_setup
-if os.name == 'posix':
+if os.name in ['posix', 'java']:
     rc_suffix = ''
 else:
     rc_suffix = '.ini'

@@ -17,7 +17,7 @@ import sys
 import warnings
 
 # Import the platform-specific implementations
-if os.name == 'posix':
+if os.name in ['posix', 'java']:
     import platutils_posix as _platutils
 elif sys.platform == 'win32':
     import platutils_win32 as _platutils

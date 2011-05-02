@@ -90,7 +90,7 @@ def rehashdir_f(self,arg):
     path = map(os.path.abspath,arg.split(';'))
     alias_table = self.shell.alias_table
         
-    if os.name == 'posix':
+    if os.name in ['posix', 'java']:
         isexec = lambda fname:os.path.isfile(fname) and \
                  os.access(fname,os.X_OK)
     else:
@@ -108,7 +108,7 @@ def rehashdir_f(self,arg):
     try:
         # write the whole loop for posix/Windows so we don't have an if in
         # the innermost part
-        if os.name == 'posix':
+        if os.name in ['posix', 'java']:
             for pdir in path:
                 os.chdir(pdir)
                 for ff in os.listdir(pdir):

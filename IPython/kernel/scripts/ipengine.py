@@ -38,7 +38,7 @@ from IPython.kernel.engineservice import EngineService
 # This must be done before IPython.kernel.config is imported.
 from IPython.iplib import user_setup
 from IPython.genutils import get_ipython_dir, get_log_dir, get_security_dir
-if os.name == 'posix':
+if os.name in ['posix', 'java']:
     rc_suffix = ''
 else:
     rc_suffix = '.ini'

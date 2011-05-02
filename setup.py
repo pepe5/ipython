@@ -47,7 +47,7 @@ isfile = os.path.isfile
 # Handle OS specific things
 #-------------------------------------------------------------------------------
 
-if os.name == 'posix':
+if os.name in ['posix', 'java']:
     os_name = 'posix'
 elif os.name in ['nt','dos']:
     os_name = 'windows'

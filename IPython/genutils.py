@@ -938,7 +938,7 @@ def get_home_dir():
             raise KeyError
         return homedir.decode(sys.getfilesystemencoding())
     except KeyError:
-        if os.name == 'posix':
+        if os.name in ['posix', 'java']:
             # Last-ditch attempt at finding a suitable $HOME, on systems where
             # it may not be defined in the environment but the system shell
             # still knows it - reported once as:
@@ -992,7 +992,7 @@ def get_ipython_dir():
     This uses the logic in `get_home_dir` to find the home directory
     and the adds either .ipython or _ipython to the end of the path.
     """
-    if os.name == 'posix':
+    if os.name in ['posix', 'java']:
          ipdir_def = '.ipython'
     else:
          ipdir_def = '_ipython'
@@ -1529,7 +1529,7 @@ def get_pager_cmd(pager_cmd = None):
 
     Makes some attempts at finding an OS-correct one."""
 
-    if os.name == 'posix':
+    if os.name in ['posix', 'java']:
         default_pager_cmd = 'less -r'  # -r for color control sequences
     elif os.name in ['nt','dos']:
         default_pager_cmd = 'type'

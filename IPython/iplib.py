@@ -745,7 +745,7 @@ class InteractiveShell(object,Magic):
 
         # Make some aliases automatically
         # Prepare list of shell aliases to auto-define
-        if os.name == 'posix':
+        if os.name in ['posix', 'java']:
             auto_alias = ('mkdir mkdir', 'rmdir rmdir',
                           'mv mv -i','rm rm -i','cp cp -i',
                           'cat cat','less less','clear clear',
@@ -1297,7 +1297,7 @@ class InteractiveShell(object,Magic):
         If called with no arguments, it acts as a toggle."""
 
         if not self.has_readline:
-            if os.name == 'posix':
+            if os.name in ['posix', 'java']:
                 warn("The auto-indent feature requires the readline library")
             self.autoindent = 0
             return

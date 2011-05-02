@@ -96,7 +96,7 @@ def main():
         syscmds = db.get("syscmdlist")
     
     # lowcase aliases on win32 only
-    if os.name == 'posix':
+    if os.name in ['posix', 'java']:
         mapper = lambda s:s
     else:
         def mapper(s): return s.lower()

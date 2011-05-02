@@ -330,7 +330,7 @@ class Gnuplot(Gnuplot_ori.Gnuplot):
             # set null output so nothing goes to screen. hardcopy() restores output
             self('set term dumb')
             # I don't know how to prevent screen output in Windows
-            if os.name == 'posix':
+            if os.name in ['posix', 'java']:
                 self('set output "/dev/null"')
 
         new_items = zip_items(items,titles)
